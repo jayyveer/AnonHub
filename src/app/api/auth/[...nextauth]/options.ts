@@ -14,6 +14,7 @@ export const authOptions: NextAuthOptions = {
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials: any): Promise<any> {
+        console.log("🚀 ~ authorize ~ credentials:", credentials)
         await dbConnect();
         try {
           const user = await UserModel.findOne({
@@ -31,7 +32,7 @@ export const authOptions: NextAuthOptions = {
           }
 
           const isPasswordCorrect = await bcrypt.compare(
-            credentials.passowrd,
+            credentials.password,
             user.password
           );
 
