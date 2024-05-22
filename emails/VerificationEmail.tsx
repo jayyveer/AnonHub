@@ -8,7 +8,6 @@ import {
   Row,
   Section,
   Text,
-  Button,
 } from "@react-email/components";
 
 interface VerificationProps {
